@@ -6,8 +6,8 @@ class Song < ActiveRecord::Base
     url = "http://itunes.apple.com/search?#{query_string}"
     raw_response = HTTParty.get(url)
     response = JSON.parse(raw_response)
-    raw_song = response['results']
-    package_songs = raw_song.map do |song|
+    raw_songs = response['results']
+    package_songs = raw_songs.map do |song|
       {
         :itunes_artist_id => song['artistId'],
         :itunes_song_id => song['trackId'],

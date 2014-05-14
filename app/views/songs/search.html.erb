@@ -1,0 +1,11 @@
+<% @songs.each do |song| %>
+
+<div class="search_div">
+
+  <div class="search_info">
+    <h2><%= song[:title] %></h2>
+  </div>
+  <img src="<%= song[:artwork_url]%>" alt="">
+</div>
+
+<% end %>
