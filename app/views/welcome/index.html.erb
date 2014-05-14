@@ -1,7 +1,23 @@
 
 <h1>Tunr</h1>
 
+<h3>Welcome <%= @current_listener.username %>
 <form action="/songs/search" method="get">
   <input type="text" name="search_term" placeholder="... search for a song">
   <input type="submit">
 </form>
+
+<% @songs.each do |song| %>
+<div>
+  <img src="<%= song.artwork_url %>" alt="">
+  <h3><%= song.title %>
+    <audio controls src="<%= song.preview_link %>"></audio>
+
+    <form action="/songs/<%= song.id %>" method="post">
+      <%= token_tag %>
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">
+        <i class='fa fa-trash-o'></i>
+      </button>
+</div>
+<% end %>
