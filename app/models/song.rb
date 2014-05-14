@@ -38,8 +38,5 @@ class Song < ActiveRecord::Base
     Song.new(song_hash)
   end
 
-  def destroy
-    Song.delete(params[:id])
-    redirect_to root_path
-  end
+
 end

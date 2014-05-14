@@ -1,5 +1,7 @@
 class SongsController < ApplicationController
 
+  before_action:current_listener
+
   def search
     @songs = Song.itunes_search(params[:search_term])
   end
