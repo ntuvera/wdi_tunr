@@ -1,16 +1,18 @@
 
-<h1>Tunr</h1>
-
-<h3>Welcome <%= @current_listener.username %>
+<div class="splash_welcome"><h5>Welcome <%= @current_listener.username %></h5><div>
 <form action="/songs/search" method="get">
   <input type="text" name="search_term" placeholder="... search for a song">
   <input type="submit">
 </form>
 
 <% @songs.each do |song| %>
-<div>
+<div class="index_item">
   <img src="<%= song.artwork_url %>" alt="">
-  <h3><%= song.title %>
+    <div>Album: <%= song.album %>
+       Genere: <%= song.genre %>
+  </div>
+  <h3>Title: <%= song.title %></h3>
+
     <audio controls src="<%= song.preview_link %>"></audio>
 
     <form action="/songs/<%= song.id %>" method="post">
